@@ -29,7 +29,7 @@ def update_console():
         print(f"3. Tahun \t: {tahun:4}")
         print("="*110)
         # User input pilihan yang akan di ubah
-        user_option = int(input("Masukkan pilihan 1-3 : "))
+        user_option = int(input("Masukkan pilihan (1-3)) : "))
         match(user_option):
             case 1:
                 judul = input("Ubah judul : ")
