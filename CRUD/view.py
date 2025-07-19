@@ -2,7 +2,35 @@ from . import operasi
 from . import database
 
 def delete_console():
-    print("TESTTTTT")
+    read_console()
+    while(True):
+        print("Silahkan pilih nomor buku yang akan di delete")
+        no_buku = int(input("Nomor Buku: "))
+        data_buku = operasi.read(index=no_buku)
+
+        if data_buku:
+            data_break = data_buku.split(',')
+            pk = data_break[0]
+            data_add = data_break[1]
+            penulis = data_break[2]
+            judul = data_break[3]
+            tahun = data_break[4][:-1]
+
+    
+            # data yang ingin diupdate
+            print("\n"+"="*100)
+            print("Data yang ingin anda Hapus")
+            print(f"1. Judul\t: {judul:.40}")
+            print(f"2. Penulis\t: {penulis:.40}")
+            print(f"3. Tahun\t: {tahun:4}")
+            is_done = input("Apakah anda yakin (y/n)? ")
+            if is_done == "y" or is_done == "Y":
+                operasi.delete(no_buku)
+                break
+        else:
+            print("nomor tidak valid, silahkan masukan lagi")
+
+    print("Data berhasil di hapus")
     
 def update_console():
     read_console()
